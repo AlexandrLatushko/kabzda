@@ -11,6 +11,7 @@ const meta: Meta<typeof Select > = {
 export default meta;
 
 type Story = StoryObj<typeof Select>;
+
 export const WithValue: Story = {
     render: () => {
         const [value, setValue] = useState("2");
@@ -32,13 +33,22 @@ export const WithValue: Story = {
 };
 
 export const WithoutValue: Story = {
-    args: {
-        onChange: () => {action('Value changed')},
-        items:[
-            {value:'1', title:'Minsc'},
-            {value:'2', title:'Kiev'},
-            {value:'3', title:'Gdansk'}
-        ]
+    render: () => {
+        const [value, setValue] = useState(null);
+        return (
+            <Select
+                value={value}
+                onChange={(newValue) => {
+                    setValue(newValue);
+                    action('Value changed')(newValue);
+                }}
+                items={[
+                    { value: '1', title: 'Minsc' },
+                    { value: '2', title: 'Kiev' },
+                    { value: '3', title: 'Gdansk' }
+                ]}
+            />
+        );
     },
 }
 

@@ -8,6 +8,21 @@
 .items {
     position: absolute;
     padding: 5px;
-    border: 1px solid rgb(124, 248, 180);;
+    border: 1px solid rgb(124, 248, 180);
 }
 
+.item.selectet{
+    background-color:rgba(99, 245, 177, 0.829);
+    color: white;
+}
+
+/* Select.module.css */
+.item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.selected {
+    background-color: #b3d4fc; /* Замените цвет на желаемый */
+    color: #fff; /* Замените цвет текста на желаемый */
+}
